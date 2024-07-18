@@ -3,7 +3,6 @@ import UserModel from "@/model/User"
 import bcrypt from "bcryptjs"
 
 import { sendVerificationEmail } from "@/helpers/sendVerificationEmail"
-import { SuiteContext } from "node:test"
 
 // ------------ Algo --------------
 // IF existingUserByEmail EXISTS THEN
@@ -72,7 +71,7 @@ export async function POST(req: Request) {
       const expiryDate = new Date()
       expiryDate.setHours(expiryDate.getHours() + 1)
 
-      const newUser = await new UserModel({
+      const newUser = new UserModel({
         username,
         email,
         password: hashedPassword,
