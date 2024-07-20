@@ -1,11 +1,25 @@
 import dbConnect from "@/lib/dbConnect"
 import UserModel from "@/model/User"
-
+import { z } from "zod"
+import { verifySchema } from "@/schemas/verifySchema"
 export async function POST(req: Request) {
   await dbConnect()
 
   try {
     const { username, code } = await req.json()
+    try {
+      verifySchema.shape.code.parse(code)
+    } catch (validationError: any) {
+      if (validationError instanceof z.ZodError) {
+        return Response.json(
+          {
+            success: false,
+            message: "Invalid verification code format",
+          },
+          { status: 400 }
+        )
+      }
+    }
 
     const decodedUsername = decodeURIComponent(username)
     const user = await UserModel.findOne({ username: decodedUsername })
