@@ -23,7 +23,6 @@ export default function RootLayout({
           {children}
           <Toaster />
         </body>
-        4
       </AuthProvider>
     </html>
   )

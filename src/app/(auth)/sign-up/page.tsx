@@ -90,10 +90,12 @@ const page = () => {
     <div className="flex justify-center items-center min-h-screen bg-gray-800">
       <div className="w-full max-w-md p-8 space-y-8 bg-white rounded-lg shadow-md">
         <div className="text-center">
-          <h1 className="text-4xl font-extrabold tracking-tight lg:text-5xl mb-6">
-            Join True Feedback
+          <h1 className="text-2xl font-extrabold tracking-tight lg:text-4xl mb-6">
+            Join Mystery Message
           </h1>
-          <p className="mb-4">Sign up to start your anonymous adventure</p>
+          <p className="mb-4 font-bold">
+            Sign up to start your anonymous adventure
+          </p>
         </div>
 
         <Form {...form}>
@@ -167,7 +169,7 @@ const page = () => {
             </Button>
           </form>
         </Form>
-        <div className="text-center mt-4">
+        <div className="text-center">
           <p>
             Already a Member?{" "}
             <Link href="/sign-in" className="text-blue-500 hover:text-blue-800">
